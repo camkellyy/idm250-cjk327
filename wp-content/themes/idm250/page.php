@@ -1,6 +1,6 @@
 <?php get_header();?>
 
-about
+<p>about</p>
 
 <?php get_template_part('components/content'); ?>
 
