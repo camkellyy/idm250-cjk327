@@ -7,4 +7,8 @@
     <title>The Title</title>
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?> >
+    <?php 
+    wp_body_open();
+    ?>
+    <?php wp_nav_menu(['theme_location' => 'primary-menu']); ?>
