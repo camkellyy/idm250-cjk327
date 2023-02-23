@@ -6,7 +6,7 @@
 
 body {
     padding: 0px;
-    color: black;
+    color: #252525;
     background-color: white;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
@@ -27,6 +27,26 @@ body {
 
 p {
     line-height: 175%;
+}
+
+a {
+    color: #252525;
+}
+
+/* BUTTONS */
+
+.wp-block-button a {
+    border-radius: 0;
+    background-color: transparent;
+    border: 1px solid #252525;
+    color: #252525;
+    font-size: .85rem;
+    transition: 0.3s;
+}
+
+.wp-block-button a:hover {
+    background-color: #252525;
+    color: white;
 }
 
 /* HEADINGS */
