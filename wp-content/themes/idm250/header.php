@@ -11,4 +11,8 @@
     <?php 
     wp_body_open();
     ?>
-    <?php wp_nav_menu(['theme_location' => 'primary-menu']); ?>
+    <div class="nav">
+        <?php wp_nav_menu(['theme_location' => 'primary-menu-left']); ?>
+        <img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo.png" alt="Logo">
+        <?php wp_nav_menu(['theme_location' => 'primary-menu-right']); ?>
+    </div>

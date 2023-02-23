@@ -43,7 +43,8 @@ function theme_scripts_and_styles() {
     function register_theme_menus() {
         register_nav_menus(
             [
-                'primary-menu' => "Primary Menu",
+                'primary-menu-left' => "Primary Menu Left",
+                'primary-menu-right' => "Primary Menu Right",
                 'footer-menu' => 'Footer Menu'
             ]
         );
@@ -51,6 +52,38 @@ function theme_scripts_and_styles() {
 
     add_action('init', 'register_theme_menus');
 
-    
+
+    function register_custom_post_types() {
+    // Register Albums post type
+        register_post_type('albums',
+            [
+                'labels' => [
+                    'name' => __('Albums'),
+                    'singular_name' => __('Album')
+                ],
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => ['slug' => 'albums'],
+                'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
+                'show_in_rest' => true,
+            ]
+        );
+
+        register_post_type('concerts',
+            [
+                'labels' => [
+                    'name' => __('Concerts'),
+                    'singular_name' => __('Concert')
+                ],
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => ['slug' => 'concerts'],
+                'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
+                'show_in_rest' => true,
+            ]
+        );
+    }
+
+    add_action('init', 'register_custom_post_types');
 
 ?>
