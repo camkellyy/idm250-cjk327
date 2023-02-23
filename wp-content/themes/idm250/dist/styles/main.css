@@ -18,7 +18,7 @@ body {
     justify-items: center;
     align-content: center;
     width: 100%;
-    padding: 10rem 15rem 5rem;
+    padding: 2rem 15rem 5rem;
 }
 
 .content-blocks > * + * {
@@ -31,6 +31,10 @@ p {
 
 a {
     color: #252525;
+}
+
+.title {
+    margin: 10rem 15rem 0;
 }
 
 /* BUTTONS */
