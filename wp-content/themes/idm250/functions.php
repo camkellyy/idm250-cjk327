@@ -11,6 +11,13 @@ function theme_scripts_and_styles() {
     );
 
     wp_enqueue_style(
+        'favicon',
+        get_template_directory_uri() . '/dist/images/favicon.png',
+        [],
+        null
+    );
+
+    wp_enqueue_style(
         'google-fonts',
         'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&display=swap',
         [],
@@ -45,7 +52,8 @@ function theme_scripts_and_styles() {
             [
                 'primary-menu-left' => "Primary Menu Left",
                 'primary-menu-right' => "Primary Menu Right",
-                'footer-menu' => 'Footer Menu'
+                'footer-menu' => 'Footer Menu',
+                'social-media-menu' => 'Social Media'
             ]
         );
     }
@@ -85,5 +93,18 @@ function theme_scripts_and_styles() {
     }
 
     add_action('init', 'register_custom_post_types');
+
+    function get_theme_menu($menu_name) {
+
+        // Get menu items as a flat array
+        $locations = get_nav_menu_locations();
+        // If menu doesn't exist, let's just return an empty array
+        if (!isset($locations[$menu_name])) {
+            return [];
+        }
+        $menu = wp_get_nav_menu_object($locations[$menu_name]);
+        $menu_items = wp_get_nav_menu_items($menu->term_id, ['order' => 'DESC']);
+        return $menu_items;
+    }
 
 ?>
