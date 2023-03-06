@@ -494,6 +494,10 @@ hr {
         width: 100%;
         margin: 5rem 0rem 0rem 0rem;
     }
+
+    .pull-quote {
+        width: 55%;
+    }
 }
 
 @media screen and (max-width: 890px) {
@@ -527,6 +531,10 @@ hr {
 
     .four-container {
         padding-top: 12rem;
+    }
+
+    .pull-quote {
+        width: 65%;
     }
 }
 
