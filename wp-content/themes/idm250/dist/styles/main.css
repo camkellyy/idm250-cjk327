@@ -536,6 +536,18 @@ hr {
     .pull-quote {
         width: 65%;
     }
+
+    .two-col-hero-container {
+        margin: 10rem auto 5rem;
+    }
+
+    .two-col-bg-text {
+        line-height: 600px;
+    }
+
+    .two-col-hero-image {
+        margin-top: 40px;
+    }
 }
 
 @media screen and (max-width: 590px) {
