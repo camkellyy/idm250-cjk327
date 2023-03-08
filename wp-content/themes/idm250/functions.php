@@ -11,13 +11,6 @@ function theme_scripts_and_styles() {
     );
 
     wp_enqueue_style(
-        'favicon',
-        get_template_directory_uri() . '/dist/images/favicon.png',
-        [],
-        null
-    );
-
-    wp_enqueue_style(
         'google-fonts',
         'https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter&display=swap',
         [],
@@ -106,5 +99,36 @@ function theme_scripts_and_styles() {
         $menu_items = wp_get_nav_menu_items($menu->term_id, ['order' => 'DESC']);
         return $menu_items;
     }
+
+    function my_acf_json_save_point($path)
+    {
+        $acf_directory = "/acf";
+
+        // update path
+        $path = get_stylesheet_directory() . $acf_directory;
+
+        // return
+        return $path;
+    }
+    add_filter('acf/settings/save_json', 'my_acf_json_save_point');
+
+
+    function my_acf_json_load_point( $paths ) {
+
+        $acf_directory = "/acf";
+        
+        // remove original path (optional)
+        unset($paths[0]);
+        
+        
+        // append path
+        $paths[] = get_stylesheet_directory() . $acf_directory;
+        
+        
+        // return
+        return $paths;
+        
+    }
+    add_filter('acf/settings/load_json', 'my_acf_json_load_point');
 
 ?>

@@ -17,7 +17,10 @@
 
     <div class="four-small">
         <p class="four-text">Page not found!</p>
-        <button>BACK TO HOME</button>
+
+        <a href="<?php echo site_url();?>">
+          <button class="error-button">BACK TO HOME</button>
+          </a>
     </div>
 </div>
 
