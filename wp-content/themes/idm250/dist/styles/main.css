@@ -33,6 +33,12 @@ a {
     color: #252525;
 }
 
+.wp-block-embed__wrapper iframe {
+    width: 1000px;
+    height: 562px;
+    margin-bottom: 3rem;
+}
+
 /* BUTTONS */
 
 .wp-block-button a, .button, .four-small button {
@@ -136,6 +142,12 @@ blockquote, .pull-quote-container {
     margin: 5rem 0;
 }
 
+.block-container {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 blockquote figure {
     margin-bottom: 1rem;
 }
@@ -156,6 +168,10 @@ blockquote p, .pull-quote {
     color: white;
 }
 
+.block-quote, .block-quote-citation {
+    color: #252525;
+}
+
 blockquote cite, .pull-quote-citation {
     margin-top: 2rem;
     font-style: italic;
@@ -163,6 +179,56 @@ blockquote cite, .pull-quote-citation {
 
 .quote-image {
     margin-bottom: 2rem;
+}
+
+/* ALBUM SONG BLOCK */
+
+.album-song-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    color: white;
+    margin-top: 4rem;
+}
+
+.album-songs-row, .album-songs-row-header {
+    width: 60%;
+}
+
+.song-hr {
+   margin: 1rem 0 0 0;
+   padding: 0px;
+}
+
+.album-songs-row-header .song-row {
+    margin-top: 1rem;
+}
+
+.song-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.section-1, .section-2 {
+    display: flex;
+    align-items: center;
+}
+
+.section-2 {
+    width: 25%;
+    justify-content: space-between;
+}
+
+.song-bold {
+    margin-left: 20px;
+}
+
+.song-player {
+    text-decoration: none;
+    color: white;
 }
 
 /* ONE & TWO COLUMN HERO */
@@ -352,7 +418,7 @@ footer {
     align-items: center;
     background-color: #252525;
     height: 345px;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
 }
 
 footer p {
@@ -509,8 +575,16 @@ hr {
         justify-content: center;
     }
 
+    .song-hr {
+        display: block;
+    }
+
     hr {
         display: none;
+    }
+
+    .album-songs-row, .album-songs-row-header {
+        width: 80%;
     }
 }
 
@@ -553,6 +627,14 @@ hr {
 @media screen and (max-width: 590px) {
     .one-col-hero {
         margin: 10rem auto 0;
+    }
+
+    .clock, .time {
+        visibility: hidden;
+    }
+
+    .album-songs-row, .album-songs-row-header {
+        width: 100%;
     }
 }
 

@@ -34,13 +34,7 @@ $image = get_field('pull-quote-bg-image');
 if( !empty( $image ) ): ?>
     <div class="pull-quote-container" style="background-image: url('<?php echo esc_url($image['url']); ?>')">
 <?php endif; ?>
-
-    <?php 
-    $image = get_field('quote-image');
-    if( !empty( $image ) ): ?>
-        <img class="quote-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-    <?php endif; ?>
-
+        <img class="block-quote-image" src="<?php echo get_template_directory_uri(); ?>/dist/images/pull-quote.png" alt="" />
         <p class="pull-quote"><?php the_field('pull-quote');?></p>
         <p class="pull-quote-citation"><?php the_field('pull-quote-citation');?></p>
     </div>
@@ -52,5 +46,63 @@ if( !empty( $image ) ): ?>
 </div>
 
 <?php get_template_part('components/content'); ?>
+
+
+<div class="album-songs"><?php the_field('album-songs');?>
+    
+
+    <?php 
+    $image = get_field('album-background-image');
+    if( !empty( $image ) ): ?>
+        <div class="album-song-container" style="background-image: url('<?php echo esc_url($image['url']); ?>')">
+    <?php endif; ?>
+    <h1><?php the_field('album-title'); ?></h1>
+
+
+    <div class="album-songs-row-header">
+        <div class="song-row">
+            <div class="section-1">
+                <p>#</p>
+                <p class="song-bold">TITLE</p>
+            </div>
+            <div class="section-2">
+                <p class="clock"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/clock.png" alt=""></p>
+            </div>
+        </div>
+        <hr class="song-hr">
+    </div>
+
+
+<?php 
+$img = get_template_directory_uri();
+$rows = get_field('album-song-info');
+if( $rows ) {
+    echo '<div class="album-songs-row">';
+    foreach( $rows as $row ) {
+        $number = $row['album-song-number'];
+        $name = $row['album-song-name'];
+        $time = $row['album-song-time'];
+        $link = $row['album-song-link'];
+
+        echo "
+        <div class='song-row'>
+            <div class='section-1'>
+                <p>$number</p>
+                <p class='song-bold'>$name</p>
+            </div>
+            <div class='section-2'>
+                <p class='time'>$time</p>
+                <a class='song-player' href='{$link['url']}'><img src='{$img}/dist/images/play.png' alt=''></a>
+            </div>
+        </div>
+        ";
+    }
+    echo '</div>';
+}
+
+?>
+
+</div>
+
 
 <?php get_footer();?>
