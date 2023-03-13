@@ -34,13 +34,7 @@ $image = get_field('pull-quote-bg-image');
 if( !empty( $image ) ): ?>
     <div class="pull-quote-container" style="background-image: url('<?php echo esc_url($image['url']); ?>')">
 <?php endif; ?>
-
-    <?php 
-    $image = get_field('quote-image');
-    if( !empty( $image ) ): ?>
-        <img class="quote-image" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-    <?php endif; ?>
-
+        <img class="block-quote-image" src="<?php echo get_template_directory_uri(); ?>/dist/images/pull-quote.png" alt="" />
         <p class="pull-quote"><?php the_field('pull-quote');?></p>
         <p class="pull-quote-citation"><?php the_field('pull-quote-citation');?></p>
     </div>
