@@ -34,17 +34,70 @@
 </div>
 
 
+
+<?php 
+$image = get_field('concert-background-image');
+if( !empty( $image ) ): ?>
+    <div class="album-song-container" style="background-image: url('<?php echo esc_url($image['url']); ?>')">
+<?php endif; ?>
+<h1 class="concert-title"><?php the_field('concert-info-title'); ?></h1>
+
+<?php 
+$img = get_template_directory_uri();
+$rows = get_field('show-info');
+if( $rows ) {
+    echo '<div class="concerts-songs-row">';
+    foreach( $rows as $row ) {
+        $month = $row['show-month'];
+        $day = $row['show-day-date'];
+        $location = $row['show-location'];
+        $link = $row['show-ticket-link'];
+
+        echo "
+        <div class='concert-row'>
+            <div class='concert-section-1'>
+                <p>$month</p>
+                <p class='big-text'>$day</p>
+            </div>
+            <div class='concert-section-2'>
+                <p>$location</p>
+            </div>
+            <div class='concert-section-3'>
+                <a class='song-player light-button' href='{$link['url']}' target='{$link['target']}'>{$link['title']}</a>
+            </div>
+        </div>
+        <hr class='concert-hr'>
+        ";
+
+        echo "
+        <div class='concert-row-mobile'>
+            <div class='concert-section-1-mobile'>
+                <div class='date'>
+                    <p>$month</p>
+                    <p class='big-text'>$day</p>
+                </div>
+                <div class='circle'></div>
+                <p>$location</p>
+            </div>
+            <div class='concert-section-2-mobile'>
+                <a class='song-player light-button' href='{$link['url']}' target='{$link['target']}'>{$link['title']}</a>
+            </div>
+            <hr class='concert-hr-mobile'>
+        </div>
+        ";
+    }
+    echo '</div>';
+}
+
+?>
+</div>
+
+
     <div class="pull-quote-container block-container" style="background-image: url('<?php echo get_template_directory_uri(); ?>/dist/images/block-quote-bg.png')">
         <img class="block-quote-image" src="<?php echo get_template_directory_uri(); ?>/dist/images/block-quote.png" alt="" />
         <p class="pull-quote block-quote"><?php the_field('pull-quote');?></p>
         <p class="pull-quote-citation block-quote-citation"><?php the_field('pull-quote-citation');?></p>
     </div>
-
-<div class="one-col-hero">
-    <p class="one-col-bg-text"><?php the_field('one-col-bg-text');?></p>
-    <h1 class="one-col-title"><?php the_field('one-col-title');?></h1>
-    <p class="one-col-description"><?php the_field('one-col-description');?></p>
-</div>
 
 <?php get_template_part('components/content'); ?>
 

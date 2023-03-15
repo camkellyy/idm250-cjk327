@@ -12,22 +12,22 @@
     <?php 
     wp_body_open();
     ?>
-    <div class="nav">
+    <div class="nav-light">
         <?php wp_nav_menu(['theme_location' => 'primary-menu-left']); ?>
-        <a class="logo" href="<?php echo site_url()?>"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo.png" alt="Logo"></a>
+        <a class="logo" href="<?php echo site_url()?>"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo-light.png" alt="Logo"></a>
         <div class="right-menu">
             <?php wp_nav_menu(['theme_location' => 'primary-menu-right']); ?>
             <div class="social-media">
-                <a href="https://www.instagram.com/echokidjones/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/instagram-dark.svg" alt="Instagram"></a>
-                <a href="https://open.spotify.com/artist/26yYNsDSRGGwB4hBJ2JLAt?si=MC-SommvTq-c-bXK-ptCUg" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/spotify-dark.svg" alt="Spotify"></a>
+                <a href="https://www.instagram.com/echokidjones/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/instagram-light.svg" alt="Instagram"></a>
+                <a href="https://open.spotify.com/artist/26yYNsDSRGGwB4hBJ2JLAt?si=MC-SommvTq-c-bXK-ptCUg" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/spotify-light.svg" alt="Spotify"></a>
             </div>
         </div>
     </div>
 
-    <div class="mobile-nav-container">
+    <div class="mobile-nav-container-light">
         <div class="mobile-nav">
-            <a class="logo-mobile" href="<?php echo site_url()?>"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/logo-mobile.png" alt="Logo Mobile"></a>
-            <a href="javascript:void(0);" class="icon" onclick="openNav()"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/hamburger-dark.png" alt="Hamburger"></a>
+            <a class="logo-mobile-light" href="<?php echo site_url()?>"><img class="mobile-logo-light" src="<?php echo get_template_directory_uri(); ?>/dist/images/logo-mobile-light.png" alt="Logo Mobile"></a>
+            <a href="javascript:void(0);" class="icon" onclick="openNav()"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/hamburger-light.png" alt="Hamburger"></a>
         </div>
     </div>
 

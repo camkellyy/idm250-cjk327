@@ -39,12 +39,6 @@ if( !empty( $image ) ): ?>
         <p class="pull-quote-citation"><?php the_field('pull-quote-citation');?></p>
     </div>
 
-<div class="one-col-hero">
-    <p class="one-col-bg-text"><?php the_field('one-col-bg-text');?></p>
-    <h1 class="one-col-title"><?php the_field('one-col-title');?></h1>
-    <p class="one-col-description"><?php the_field('one-col-description');?></p>
-</div>
-
 <?php get_template_part('components/content'); ?>
 
 

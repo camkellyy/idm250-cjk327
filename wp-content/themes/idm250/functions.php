@@ -69,20 +69,6 @@ function theme_scripts_and_styles() {
                 'show_in_rest' => true,
             ]
         );
-
-        register_post_type('concerts',
-            [
-                'labels' => [
-                    'name' => __('Concerts'),
-                    'singular_name' => __('Concert')
-                ],
-                'public' => true,
-                'has_archive' => true,
-                'rewrite' => ['slug' => 'concerts'],
-                'supports' => ['title', 'editor', 'thumbnail', 'excerpt'],
-                'show_in_rest' => true,
-            ]
-        );
     }
 
     add_action('init', 'register_custom_post_types');
@@ -130,5 +116,38 @@ function theme_scripts_and_styles() {
         
     }
     add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+
+    add_action('acf/init', 'my_acf_init');
+    function my_acf_init() {
+        
+        // check function exists
+        if( function_exists('acf_register_block') ) {
+            
+            // register a testimonial block
+            acf_register_block(array(
+                'name'              => 'one-col-hero',
+                'title'             => __('Header With Background Text'),
+                'description'       => __('A custom hedaer block with background text.'),
+                'render_callback'   => 'my_acf_block_render_callback',
+                'category'          => 'formatting',
+                'icon'              => 'admin-comments',
+                'keywords'          => array( 'background', 'text', 'header' ),
+            ));
+        }
+    }
+
+    function my_acf_block_render_callback($block)
+{
+    // ['acf/logo-cloud']
+    // convert name ("acf/testimonial") into path friendly slug ("testimonial")
+    $slug = str_replace('acf/', '', $block['name']);
+    // $slug = 'logo-cloud';
+    $block_directory = '/blocks';
+
+    // include a template part from within the "blocks/{name-of-block.php}"
+    if (file_exists(get_theme_file_path("{$block_directory}/{$slug}.php"))) {
+        include get_theme_file_path("{$block_directory}/{$slug}.php");
+    }
+}
 
 ?>

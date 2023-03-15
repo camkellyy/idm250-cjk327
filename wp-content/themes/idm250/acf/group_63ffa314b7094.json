@@ -5,7 +5,7 @@
         {
             "key": "field_63ffa314ba584",
             "label": "Description",
-            "name": "one-col-description",
+            "name": "one-col-description-block",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -25,11 +25,11 @@
         {
             "key": "field_63ffa314ba5a9",
             "label": "Background Text",
-            "name": "one-col-bg-text",
+            "name": "one-col-bg-text-block",
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -45,11 +45,11 @@
         {
             "key": "field_63ffa3368293b",
             "label": "Title",
-            "name": "one-col-title",
+            "name": "one-col-title-block",
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -66,9 +66,9 @@
     "location": [
         [
             {
-                "param": "page_type",
+                "param": "block",
                 "operator": "==",
-                "value": "top_level"
+                "value": "acf\/one-col-hero"
             }
         ]
     ],
@@ -81,5 +81,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1678235317
+    "modified": 1678838438
 }

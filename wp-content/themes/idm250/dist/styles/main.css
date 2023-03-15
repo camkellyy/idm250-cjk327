@@ -33,10 +33,102 @@ a {
     color: #252525;
 }
 
+/* PROJECT CARDS */
+
+.listing-project-container {
+    position: relative;
+    z-index: 4;
+    margin-top: 15rem;
+    margin-bottom: 5rem;
+}
+
+.recent-project-container {
+    margin-bottom: 5rem;
+}
+
+.recent-project-container h1 {
+    text-align: center;
+    margin: 4rem 0 3rem;
+}
+
+/* .project-container {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+} */
+
+.project-container-listing, .project-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
+    grid-gap: 40px 40px;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
+.card-container h5 {
+    margin: 1.5rem 0 .5rem 2rem;
+}
+
+article {
+    margin: 0;
+    padding: 0;
+}
+
+article a {
+    text-decoration: none;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-content: center;
+    /* width: 75%; */
+    border: 1px solid #252525;
+    padding: 0 0 1rem 0;
+    margin-right: 0;
+}
+
+.recent-info {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.project-circle {
+    height: 7px;
+    width: 7px;
+    border: 1px solid #252525;
+    border-radius: 50%;
+    background-color: #252525;
+    margin: 0 1rem;
+}
+
+/* HOME */
+
+.home-bg-img {
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.listing-bg-img {
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 50vh;
+    width: 100vw;
+}
+
+/* VIDEO */
+
 .wp-block-embed__wrapper iframe {
     width: 1000px;
     height: 562px;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 }
 
 /* BUTTONS */
@@ -56,6 +148,23 @@ a {
 .wp-block-button a:hover, .button:hover {
     background-color: #252525;
     color: white;
+}
+
+.light-button {
+    border-radius: 0;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    font-size: .85rem;
+    transition: 0.3s;
+    text-decoration: none;
+    padding: calc(0.667em + 2px) calc(1.333em + 2px);
+    text-transform: uppercase;
+}
+
+.light-button:hover {
+    background-color: white;
+    color: #252525;;
 }
 
 /* HEADINGS */
@@ -181,7 +290,7 @@ blockquote cite, .pull-quote-citation {
     margin-bottom: 2rem;
 }
 
-/* ALBUM SONG BLOCK */
+/* ALBUM SONG / CONCERTS BLOCK */
 
 .album-song-container {
     display: flex;
@@ -197,19 +306,39 @@ blockquote cite, .pull-quote-citation {
     width: 60%;
 }
 
+.concerts-songs-row {
+    width: 80%;
+}
+
 .song-hr {
    margin: 1rem 0 0 0;
    padding: 0px;
+   border: .02px solid white;
 }
+
+.concert-hr, .concert-hr-mobile {
+    margin: 2rem 0 0 0;
+    padding: 0px;
+    border: .02px solid white;
+ }
 
 .album-songs-row-header .song-row {
     margin-top: 1rem;
 }
 
-.song-row {
+.song-row , .concert-row{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 2rem;
+}
+
+.concert-row {
+    padding: 0 6rem;
+}
+
+.concert-row-mobile {
+    display: none;
 }
 
 .section-1, .section-2 {
@@ -220,6 +349,18 @@ blockquote cite, .pull-quote-citation {
 .section-2 {
     width: 25%;
     justify-content: space-between;
+}
+
+.concert-section-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.concert-section-1 .big-text, .concert-section-1-mobile .big-text {
+    font-size: 2rem;
+    line-height: 20px;
 }
 
 .song-bold {
@@ -233,14 +374,14 @@ blockquote cite, .pull-quote-citation {
 
 /* ONE & TWO COLUMN HERO */
 
-.one-col-hero {
+.one-col-hero-block {
     display: flex;
     position: relative;
     flex-direction: column;
     justify-items: center;
     align-content: center;
-    width: 65%;
-    margin: 20rem auto 0;
+    /* width: 65%; */
+    margin: 10rem auto 0;
 }
 
 .two-col-hero-container {
@@ -257,11 +398,11 @@ blockquote cite, .pull-quote-citation {
     margin-left: 50px;
 }
 
-.two-col-hero-description, .one-col-description {
+.two-col-hero-description, .one-col-description-block {
     margin: 20px 0 40px;
 }
 
-.one-col-bg-text, .two-col-bg-text {
+.one-col-bg-text-block, .two-col-bg-text-home, .two-col-bg-text, .music-bg-text {
     font-family: 'Bebas Neue', cursive;
     font-size: 30rem;
     position: absolute;
@@ -275,13 +416,17 @@ blockquote cite, .pull-quote-citation {
     text-align: center;
 }
 
-.one-col-bg-text {
+.one-col-bg-text-block {
     height: 600px;
     bottom: 0;
 }
 
 .two-col-bg-text {
     top: 0;
+}
+
+.two-col-bg-text-home {
+    top: 100vh;
 }
 
 /* GALLERY */
@@ -293,7 +438,7 @@ blockquote cite, .pull-quote-citation {
 
 /* NAVIGATION */
 
-.nav {
+.nav, .nav-light {
     display: flex;
     position: fixed;
     top: 0;
@@ -303,8 +448,20 @@ blockquote cite, .pull-quote-citation {
     align-items: center;
     padding: 1rem 5rem;
     backdrop-filter: blur(5px);
+  }
+
+  .nav {
     background-color: rgba(255, 255, 255, 0.6);
   }
+
+  .nav-light {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  .nav-light .menu-primary-menu-left-container .menu-item a, .nav-light .menu-primary-menu-right-container .menu-item a {
+    text-decoration: none;
+    color: white;
+    }
 
 .menu-primary-menu-left-container .menu, .menu-primary-menu-right-container .menu {
     display: flex;
@@ -325,7 +482,7 @@ blockquote cite, .pull-quote-citation {
 
 /* MOBILE NAVIGATION */
 
-.mobile-nav-container {
+.mobile-nav-container, .mobile-nav-container-light {
     display: none;
     position: fixed;
     top: 0;
@@ -335,7 +492,14 @@ blockquote cite, .pull-quote-citation {
     align-items: center;
     padding: 1rem 2rem;
     backdrop-filter: blur(5px);
+}
+
+.mobile-nav-container {
     background-color: rgba(255, 255, 255, 0.6);
+}
+
+.mobile-nav-container-light {
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .mobile-nav {
@@ -543,12 +707,18 @@ hr {
     }
 }
 
+@media screen and (max-width: 1129px) {
+    .music-bg-text {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 1080px) {
-    .mobile-nav-container {
+    .mobile-nav-container, .mobile-nav-container-light {
         display: block;
     }
 
-    .nav {
+    .nav, .nav-light {
         display: none;
     }
 
@@ -564,18 +734,30 @@ hr {
     .pull-quote {
         width: 55%;
     }
+
+    .concert-row {
+        padding: 0 4rem;
+    }
+
+    .light-button {
+        background-color: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: .85rem;
+        padding: calc(0.667em + 2px) calc(1.333em + 2px);
+    }
 }
 
 @media screen and (max-width: 890px) {
-    .one-col-hero {
-        margin: 15rem auto 0;
+    .one-col-hero-block {
+        margin: 10rem auto 0;
     }
 
     .four-big {
         justify-content: center;
     }
 
-    .song-hr {
+    .song-hr, .concert-hr  {
         display: block;
     }
 
@@ -586,10 +768,14 @@ hr {
     .album-songs-row, .album-songs-row-header {
         width: 80%;
     }
+
+    .concerts-songs-row {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 620px) {
-    .mobile-nav .logo-mobile img {
+    .mobile-nav .logo-mobile img, .mobile-nav-container-light .mobile-nav .logo-mobile-light img {
         width: 50%;
         height: auto;
     }
@@ -615,18 +801,62 @@ hr {
         margin: 10rem auto 5rem;
     }
 
-    .two-col-bg-text {
+    .two-col-bg-text-home, .two-col-bg-text {
         line-height: 600px;
     }
 
     .two-col-hero-image {
         margin-top: 40px;
     }
+
+    .concert-row, .concert-hr {
+        display: none;
+    }
+
+    .concert-hr-mobile {
+        display: block;
+    }
+    
+    .concert-row-mobile {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .concert-section-1-mobile, .concert-section-2-mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .concert-section-2-mobile {
+        margin-top: 1.5rem;
+    }
+
+    .circle {
+        height: 10px;
+        width: 10px;
+        border: 1px solid white;
+        border-radius: 50%;
+        background-color: white;
+        margin: 0 1rem;
+    }
+
+    .date {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .light-button {
+        padding: calc(1.25em + 2px) calc(6em + 2px);
+    }
 }
 
 @media screen and (max-width: 590px) {
-    .one-col-hero {
-        margin: 10rem auto 0;
+    .one-col-hero-block {
+        margin: 5rem auto 0;
     }
 
     .clock, .time {
@@ -639,7 +869,23 @@ hr {
 }
 
 @media screen and (max-width: 476px) {
-    .one-col-hero {
-        margin: 7rem auto 0;
+    .one-col-hero-block {
+        margin: 4rem auto 0;
+    }
+
+    .concert-title {
+        font-size: 2.75rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .concert-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 377px) {
+    .concert-title {
+        font-size: 2.25rem;
     }
 }
